@@ -1,0 +1,13 @@
+spring:
+  profiles.active: dev
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        # it is needed only for implement auto-create tables process
+        # it will not be needed for migrations db implementation
+        hbm2ddl.auto: create
+        ddl-auto: create
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: "public"
