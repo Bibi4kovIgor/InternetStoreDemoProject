@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{../layout}"
+        lang="uk">
+    <head>
+        <title>Customers list</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="container">
+            <h2>Customers</h2>
+            <div id="customersList" >
+                <div th:if="${#lists.size(customers) == 0}">
+                    <h2>There are no customers was added yet</h2>
+                </div>
+                <div th:each="customer : ${customers}">
+                    <div>
+                        <div>
+                            <span th:text="${customer.firstName}"></span>
+                            <span th:text="${customer.lastName}"></span>
+                            <span th:text="${customer.email}"></span>
+                            <span th:text="${customer.phone}"></span>
+                            <span th:text="${customer.login}"></span>
+                            <span th:text="${customer.pass}"></span>
+                            <span th:text="${customer.taxId}"></span>
+                            <span th:text="${customer.age}"></span>
+                            <span th:text="${customer.passport}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="customerForm">
+                <form th:action="@{/add-customer}" th:object="${customerType}" method="post">
+                    <p>
+                        <span>
+                            <label for="firstName">First Name</label>
+                            <input type="text" th:field="*{firstName}" placeholder="First name">
+                        </span>
+                        <span>
+                            <label for="lastName">Last Name</label>
+                            <input type="text" th:field="*{lastName}" placeholder="Last name">
+                        </span>
+                    </p>
+
+                    <p>
+                        <span>
+                            <label for="email">E-Mail</label>
+                            <input type="text" th:field="*{email}" placeholder="E-mail">
+                        </span>
+                        <span>
+                            <label for="phone">Phone</label>
+                            <input type="text" th:field="*{phone}" placeholder="+***(***)***-**-**">
+                        </span>
+                    </p>
+
+                    <p>
+                        <span>
+                            <label for="login">Login</label>
+                            <input type="text" th:field="*{login}" placeholder="Your login">
+                        </span>
+                        <span>
+                            <label for="pass">Password</label>
+                            <input type="text" th:field="*{pass}" placeholder="Your password">
+                        </span>
+                    </p>
+
+                    <p>
+                        <label for="taxId">Tax ID</label>
+                        <input type="text" th:field="*{taxId}" placeholder="Tax ID">
+                    </p>
+
+                    <p>
+                        <label for="age">Age</label>
+                        <input type="text" th:field="*{age}" placeholder="Age">
+                    </p>
+
+                    <p>
+                        <label for="passport">Passport serial</label>
+                        <input type="text" th:field="*{passport}" placeholder="Passport serial">
+                    </p>
+
+                    <p>
+                        <span><input type="submit" value="OK"></span>
+                        <span><input type="reset" value="Clear"></span>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

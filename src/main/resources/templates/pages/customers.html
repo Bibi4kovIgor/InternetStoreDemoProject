@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+    <head>
+        <title>Customers list</title>
+    </head>
+    <body>
+        <div xmlns:th="http://www.thymeleaf.org" lang="uk" layout:fragment="content" class="container">
+            <h2>Customers</h2>
+            <div id="customersList" >
+                <div th:if="${#lists.size(customers) == 0}">
+                    <h2>There are no customers was added yet</h2>
+                </div>
+                <div th:each="customer : ${customers}">
+                    <div>
+                        <div>
+                            <span th:text="${customer.firstName}"></span>
+                            <span th:text="${customer.lastName}"></span>
+                            <span th:text="${customer.email}"></span>
+                            <span th:text="${customer.phone}"></span>
+                            <span th:text="${customer.login}"></span>
+                            <span th:text="${customer.pass}"></span>
+                            <span th:text="${customer.taxId}"></span>
+                            <span th:text="${customer.age}"></span>
+                            <span th:text="${customer.passport}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

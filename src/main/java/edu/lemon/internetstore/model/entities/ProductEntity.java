@@ -1,8 +1,7 @@
-package edu.lemon.internetstore.model;
+package edu.lemon.internetstore.model.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -15,13 +14,12 @@ import java.util.UUID;
 @Entity
 @ToString
 @Table(name = "products", schema = "public")
-public class ProductsEntity {
+public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(name = "name")
-    @NotNull
     private String name;
 
     @Column(name = "vendor_code")

@@ -3,6 +3,20 @@ server.port: 8082
 spring:
   datasource:
     initialization-mode: always
-    url: jdbc:postgresql://localhost:5433/internetstore
+    url: jdbc:postgresql://localhost:5432/internetstore
     username: admin
     password: admin
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/internetstore?ssl=false
+    user: admin
+    password: admin
+    schemas:
+      - "public"
+    locations:
+      - classpath:/db/migrations/
+
+  security:
+    user:
+      name: admin
+      password: admin

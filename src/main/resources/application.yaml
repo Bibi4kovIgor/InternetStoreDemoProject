@@ -7,7 +7,11 @@ spring:
       hibernate:
         # it is needed only for implement auto-create tables process
         # it will not be needed for migrations db implementation
-        hbm2ddl.auto: create
-        ddl-auto: create
+#        hbm2ddl.auto: validate
+        ddl-auto: validate
         dialect: org.hibernate.dialect.PostgreSQLDialect
         default_schema: "public"
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: ".html"

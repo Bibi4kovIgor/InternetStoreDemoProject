@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="uk">
+    <head></head>
+    <body>
+        <div xmlns:th="http://www.thymeleaf.org" lang="uk" class="container" layout:fragment="content">
+            <p>
+                <span th:text="'Today is: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"
+                      th:remove="tag">
+                </span>
+            </p>
+            <p>
+                <label th:text="${previousMessage}" />
+            </p>
+            <p>
+                <label th:text="${currentMessage}" />
+            </p>
+        </div>
+    </body>
+</html>
