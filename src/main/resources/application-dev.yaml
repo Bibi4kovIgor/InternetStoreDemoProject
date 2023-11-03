@@ -15,8 +15,3 @@ spring:
       - "public"
     locations:
       - classpath:/db/migrations/
-
-  security:
-    user:
-      name: admin
-      password: admin

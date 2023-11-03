@@ -1,5 +1,22 @@
+paypal:
+  password: password
+  url: "http://some-url.com"
+
 spring:
   profiles.active: dev
+
+  security:
+    user:
+      name: admin
+      password: admin
+
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 676573584701-hgld6365l37juh5kffp1j9sagmjn1o2u.apps.googleusercontent.com
+            client-secret: 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
+
 
   jpa:
     show-sql: true

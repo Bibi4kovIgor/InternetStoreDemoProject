@@ -55,6 +55,16 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 			<version>3.2.1</version>
@@ -103,6 +113,9 @@
 						</exclude>
 					</excludes>
 					<finalName>internetstore</finalName>
+					<profiles>
+						<profile>dev</profile>
+					</profiles>
 					<outputDirectory>${project.basedir}/docker/images</outputDirectory>
 				</configuration>
 			</plugin>

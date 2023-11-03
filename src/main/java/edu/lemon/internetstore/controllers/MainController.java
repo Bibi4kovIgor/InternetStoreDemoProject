@@ -1,19 +1,27 @@
 package edu.lemon.internetstore.controllers;
 
-import edu.lemon.internetstore.aspects.LogExecutionTime;
-import edu.lemon.internetstore.model.entities.ProductEntity;
-import edu.lemon.internetstore.repositories.ProductRepository;
-import edu.lemon.internetstore.service.ProductService;
+import edu.lemon.internetstore.configure.ConfigMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import java.math.BigDecimal;
-import java.util.stream.Collectors;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
+
+    @Autowired
+    private ConfigMap configMap;
+
+    @GetMapping(path = "/configs")
+    public ModelAndView printConfigs(){
+        return new ModelAndView(
+                "/pages/index",
+                new ModelMap()
+                        .addAttribute("paypalPass", configMap.getPaypalPassword())
+                        .addAttribute("paypalUrl", configMap.getPaypalUrl())
+        );
+    }
 
 /*    private final ProductService productService;*/
 
