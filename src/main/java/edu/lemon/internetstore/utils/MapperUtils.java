@@ -3,7 +3,7 @@ package edu.lemon.internetstore.utils;
 import edu.lemon.internetstore.model.dtos.ProductDto;
 import edu.lemon.internetstore.model.entities.ProductEntity;
 
-public class Mapper {
+public class MapperUtils {
 
     public static ProductDto productEntityToDto(ProductEntity productEntity) {
         return ProductDto.builder()

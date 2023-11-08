@@ -1,7 +1,7 @@
 package edu.lemon.internetstore.controllers;
 
 import edu.lemon.internetstore.model.dtos.ProductDto;
-import edu.lemon.internetstore.service.ProductService;
+import edu.lemon.internetstore.service.AdminServiceImplementation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +16,10 @@ import java.math.BigDecimal;
 @Controller
 @RequestMapping(path = "/admin")
 public class AdminController {
-    private final ProductService productService;
+    private final AdminServiceImplementation adminServiceImplementation;
 
-    public AdminController(ProductService productService) {
-        this.productService = productService;
+    public AdminController(AdminServiceImplementation adminServiceImplementation) {
+        this.adminServiceImplementation = adminServiceImplementation;
     }
 
     @GetMapping(value = "/products")
@@ -27,7 +27,7 @@ public class AdminController {
         return new ModelAndView(
                 "/pages/admin/admin-products",
                 new ModelMap()
-                        .addAttribute("products", productService.getAllData())
+                        .addAttribute("products", adminServiceImplementation.getAllData())
                         .addAttribute("productType", ProductDto.builder().build()));
     }
 
@@ -38,7 +38,7 @@ public class AdminController {
             @RequestParam(value = "price") String price,
             @RequestParam(value = "vendorCode") String vendorCode,
             @RequestParam(value = "description") String description){
-        productService.addData(
+        adminServiceImplementation.addData(
                 ProductDto.builder()
                         .name(name)
                         .quantity(Double.parseDouble(quantity))

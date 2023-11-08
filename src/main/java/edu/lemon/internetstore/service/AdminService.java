@@ -2,7 +2,7 @@ package edu.lemon.internetstore.service;
 
 import java.util.List;
 
-public interface CrudService<T, U> {
+public interface AdminService<T, U> {
 
     void addData(T data);
     List<T> getAllData();

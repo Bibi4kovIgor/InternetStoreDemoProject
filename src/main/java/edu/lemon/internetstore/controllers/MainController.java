@@ -1,17 +1,25 @@
 package edu.lemon.internetstore.controllers;
 
 import edu.lemon.internetstore.configure.ConfigMap;
-import org.springframework.beans.factory.annotation.Autowired;
+import edu.lemon.internetstore.model.dtos.ProductDto;
+import edu.lemon.internetstore.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
 
-    @Autowired
-    private ConfigMap configMap;
+
+    private final ConfigMap configMap;
+    private final UserService userService;
+
+    public MainController(ConfigMap configMap, UserService userService) {
+        this.configMap = configMap;
+        this.userService = userService;
+    }
 
     @GetMapping(path = "/configs")
     public ModelAndView printConfigs(){
@@ -23,18 +31,13 @@ public class MainController {
         );
     }
 
-/*    private final ProductService productService;*/
-
-/*    public MainController(ProductService productService) {
-        this.productService = productService;
-    }*/
-    /*
-    @GetMapping(path ={"/", "/{name}"})
-    public String Greeting(@PathVariable(required = false, name = "name") String name) {
-        return "Greetings " + name;
-    }*/
-
-
-
+    @GetMapping(path = "/products")
+    public ModelAndView getAllUsers(){
+        return new ModelAndView(
+                "/pages/products",
+                new ModelMap()
+                        .addAttribute("products", userService.getAllProducts())
+                        .addAttribute("productType", ProductDto.builder().build()));
+    }
 
 }
