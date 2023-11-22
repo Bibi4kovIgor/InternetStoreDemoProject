@@ -7,6 +7,7 @@ public class MapperUtils {
 
     public static ProductDto productEntityToDto(ProductEntity productEntity) {
         return ProductDto.builder()
+                .id(productEntity.getId().toString())
                 .price(productEntity.getPrice())
                 .quantity(productEntity.getQuantity())
                 .name(productEntity.getName())

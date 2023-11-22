@@ -13,7 +13,7 @@ import java.util.UUID;
 public interface ProductRepository extends JpaRepository<ProductEntity, UUID> {
     @NonNull List<ProductEntity> findAll();
 
-    List<ProductEntity> findByName(String name);
+    ProductEntity findByName(String name);
 
     @Override
     @Transactional

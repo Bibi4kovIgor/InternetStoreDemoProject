@@ -1,0 +1,26 @@
+{
+  "name": "InternetStore",
+  "license": "Apache-2.0",
+  "version": "0.1.0-SNAPSHOT",
+  "description": "Demo of InternetStore",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bibi4kovIgor/InternetStoreDemoProject.git"
+  },
+  "scripts": {
+    "watch": "webpack --watch -d --output ./target/classes/static/built/bundle.js"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "proxy": "http://localhost:8082",
+  "devDependencies": {
+    "@babel/core": "^7.23",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^3.1.0"
+  }
+}
